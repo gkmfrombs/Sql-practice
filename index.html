@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Interview Flashcards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+    <header class="app-header">
+        <h1>🗄️ SQL Interview Flashcards</h1>
+    </header>
+
+    <div class="controls card">
+        <label for="category">Filter by Category:</label>
+        <select id="category" onchange="filterCategory()">
+            <option value="all">All Questions (120)</option>
+            <option value="Basic SQL Concepts">Part 1: Basic SQL Concepts(Q1-20)</option>
+            <option value="Joins & Relationships">Part 2: Joins & Relationships(Q21-40)</option>
+            <option value="Advanced SQL & Functions">Part 3: Advanced SQL & Functions(Q41-70)</option>
+            <option value="Practical & Scenario-Based Queries">Part 4: Practical & Scenario-Based(Q71-100)</option>
+            <option value="Deep Dive into JOINS">Part 5: Deep Dive into JOINS(Q101-120) </option>
+        </select>
+        
+        <div class="top-bar">
+            <span class="badge counter-badge" id="questionCount">Q: 0 / 0</span>
+        </div>
+    </div>
+
+    <!-- Flashcard Container -->
+    <div class="flashcard-container" onclick="flipCard()">
+        <div class="flashcard" id="flashcard">
+            <div class="flashcard-front">
+                <span class="card-hint">Click to reveal answer</span>
+                <h2 id="questionText">Loading...</h2>
+            </div>
+            <div class="flashcard-back">
+                <div class="answer-content">
+                    <p id="answerText"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <button class="secondary-btn" onclick="prevCard()">⬅️ Previous</button>
+        <button class="secondary-btn" onclick="shuffleCards()">🔀 Shuffle</button>
+        <button class="primary-btn" onclick="nextCard()">Next ➡️</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

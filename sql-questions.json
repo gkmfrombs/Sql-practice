@@ -1,0 +1,602 @@
+[
+  {
+    "category": "Basic SQL Concepts",
+    "question": "1. What is SQL?",
+    "answer": "SQL (Structured Query Language) is a standard language used for accessing, manipulating, and managing data stored in Relational Database Management Systems (RDBMS).[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "2. What is an RDBMS?",
+    "answer": "RDBMS stands for Relational Database Management System. It is a database management system based on the relational model introduced by E.F. Codd, where data is stored in tables (rows and columns). Examples: MySQL, PostgreSQL, Oracle, SQL Server.[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "3. What is the difference between DDL, DML, DCL, and TCL?",
+    "answer": "• DDL (Data Definition Language): Defines structure (CREATE, ALTER, DROP, TRUNCATE).\n• DML (Data Manipulation Language): Manipulates data (SELECT, INSERT, UPDATE, DELETE).\n• DCL (Data Control Language): Controls access (GRANT, REVOKE).\n• TCL (Transaction Control Language): Manages transactions (COMMIT, ROLLBACK, SAVEPOINT).[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "4. What is a Primary Key?",
+    "answer": "A Primary Key is a column (or set of columns) that uniquely identifies each row in a table. It cannot contain NULL values and must contain unique values.[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "5. What is a Foreign Key?",
+    "answer": "A Foreign Key is a field in one table that links to the Primary Key in another table. It is used to enforce referential integrity between the two tables.[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "6. What is a Unique Key?",
+    "answer": "A Unique Key constraint ensures that all values in a column are different. Unlike the Primary Key, a Unique Key allows one NULL value (in most databases).[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "7. What is the difference between DELETE and TRUNCATE?",
+    "answer": "• DELETE: DML command. Deletes specific rows (can use WHERE). Can be rolled back. Slower.\n• TRUNCATE: DDL command. Removes all rows from a table. Resets identity counters. Cannot be rolled back (in most systems). Faster.[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "8. What is the difference between CHAR and VARCHAR?",
+    "answer": "• CHAR: Fixed-length character string. If the data is shorter, it adds padding spaces.\n• VARCHAR: Variable-length character string. It stores only the characters used plus a small overhead for length.[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "9. What is the SELECT statement?",
+    "answer": "It is used to retrieve data from a database.\nSELECT column1, column2 FROM table_name;[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "10. What is the DISTINCT keyword used for?",
+    "answer": "It is used to return only distinct (different) values, removing duplicates from the result set.\nSELECT DISTINCT column_name FROM table_name;[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "11. What is the WHERE clause?",
+    "answer": "It is used to filter records that meet a certain condition.\nSELECT * FROM table WHERE age > 18;[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "12. What are the AND, OR, and NOT operators?",
+    "answer": "• AND: Displays a record if all conditions are true.\n• OR: Displays a record if any condition is true.\n• NOT: Displays a record if the condition is not true.[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "13. What is the ORDER BY clause?",
+    "answer": "It is used to sort the result-set in ascending (ASC) or descending (DESC) order.\nSELECT * FROM table ORDER BY price DESC;[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "14. What are Aggregate Functions?",
+    "answer": "Functions that perform a calculation on a set of values and return a single value. Examples: COUNT(), SUM(), AVG(), MIN(), MAX().[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "15. What is the GROUP BY statement?",
+    "answer": "It groups rows that have the same values into summary rows, typically used with aggregate functions.\nSELECT department, COUNT(*) FROM employees GROUP BY department;[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "16. What is the HAVING clause?",
+    "answer": "It was added to SQL because the WHERE keyword cannot be used with aggregate functions. It filters groups created by GROUP BY.\nSELECT department, COUNT(*) FROM employees GROUP BY department HAVING COUNT(*) > 5;[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "17. What is the difference between WHERE and HAVING?",
+    "answer": "• WHERE: Filters rows before grouping.\n• HAVING: Filters groups after grouping.[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "18. What is the LIKE operator?",
+    "answer": "It is used in a WHERE clause to search for a specified pattern in a column.\n% represents zero, one, or multiple characters.\n_ represents a single character.[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "19. What is the IN operator?",
+    "answer": "It allows you to specify multiple values in a WHERE clause. It is a shorthand for multiple OR conditions.\nSELECT * FROM table WHERE city IN ('Paris', 'London');[cite: 2]"
+  },
+  {
+    "category": "Basic SQL Concepts",
+    "question": "20. What is the BETWEEN operator?",
+    "answer": "It selects values within a given range. The values can be numbers, text, or dates. The range is inclusive.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "21. What is a JOIN?",
+    "answer": "A JOIN clause is used to combine rows from two or more tables, based on a related column between them.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "22. What are the different types of JOINS?",
+    "answer": "1. INNER JOIN: Returns records that have matching values in both tables.\n2. LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table.\n3. RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table.\n4. FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "23. What is a Self Join?",
+    "answer": "A regular join, but the table is joined with itself. It is useful for querying hierarchical data or comparing rows within the same table.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "24. What is a Cross Join (Cartesian Product)?",
+    "answer": "It returns the Cartesian product of the two tables (combines every row of the first table with every row of the second table).[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "25. What is the difference between UNION and UNION ALL?",
+    "answer": "• UNION: Combines the result-set of two or more SELECT statements and removes duplicates.\n• UNION ALL: Combines the result-set and allows duplicates. It is faster than UNION.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "26. What is the INTERSECT operator?",
+    "answer": "It returns only the rows that appear in both result sets of two SELECT statements.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "27. What is the MINUS (or EXCEPT) operator?",
+    "answer": "It returns the rows from the first SELECT statement that are not present in the second SELECT statement.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "28. Can you join a table with itself? Give an example.",
+    "answer": "Yes (Self Join). Example: Finding employees who earn more than their managers.\nSELECT e.name FROM Employee e JOIN Employee m ON e.manager_id = m.id WHERE e.salary > m.salary;[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "29. What happens if you drop a table that is referenced by a Foreign Key?",
+    "answer": "The database will usually throw an error preventing the drop to maintain referential integrity. You must drop the foreign key constraint or the child table first.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "30. What is an Equi-Join?",
+    "answer": "A specific type of join that uses only the equality operator (=) in the join condition.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "31. What is a Natural Join?",
+    "answer": "A join that creates an implicit join clause based on common columns in the two tables.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "32. How do you find records in Table A that are not in Table B?",
+    "answer": "using LEFT JOIN where the right table is NULL, or using NOT EXISTS / NOT IN.\nSELECT * FROM A LEFT JOIN B ON A.id=B.id WHERE B.id IS NULL;[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "33. What is an Alias in SQL?",
+    "answer": "A temporary name given to a table or column for the duration of a query (AS keyword). It improves readability.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "34. What is a Composite Key?",
+    "answer": "A primary key that consists of two or more columns to uniquely identify a record.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "35. What is Normalization?",
+    "answer": "The process of organizing data in a database to reduce redundancy and improve data integrity.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "36. Explain 1NF, 2NF, and 3NF.",
+    "answer": "• 1NF: Atomic values (no repeating groups).\n• 2NF: 1NF + No partial dependency (all non-key attributes depend on the entire primary key).\n• 3NF: 2NF + No transitive dependency (non-key attributes depend only on the primary key, not on other non-key attributes).[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "37. What is Denormalization?",
+    "answer": "The process of adding redundancy to a database (combining tables) to improve read performance, usually at the cost of write performance and storage.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "38. What is a Schema?",
+    "answer": "The logical collection of database objects (tables, views, indexes) usually associated with a database user.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "39. What is a View?",
+    "answer": "A virtual table based on the result-set of an SQL statement. It does not store data itself but displays data stored in other tables.[cite: 2]"
+  },
+  {
+    "category": "Joins & Relationships",
+    "question": "40. Why use a View?",
+    "answer": "To simplify complex queries, restrict access to specific columns (security), and present data in a specific format.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "41. What is a Subquery?",
+    "answer": "A query nested inside another query. It can be in the SELECT, FROM, or WHERE clause.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "42. What is the difference between a Correlated and Non-Correlated Subquery?",
+    "answer": "• Non-Correlated: Executes once independently and passes the result to the outer query.\n• Correlated: Executes repeatedly, once for each row processed by the outer query. It depends on the outer query for values.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "43. What is the EXISTS operator?",
+    "answer": "Used to test for the existence of any record in a subquery. It returns TRUE if the subquery returns one or more records.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "44. What are String Functions?",
+    "answer": "CONCAT(), SUBSTRING(), LENGTH(), UPPER(), LOWER(), TRIM(), REPLACE().[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "45. What are Date Functions?",
+    "answer": "NOW(), CURDATE(), DATEDIFF(), DATE_ADD(), EXTRACT().[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "46. What is the CASE statement?",
+    "answer": "The SQL version of IF-THEN-ELSE logic.\nSELECT name,\nCASE\nWHEN age < 18 THEN 'Minor'\nELSE 'Adult'\nEND\nFROM users;[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "47. What is COALESCE()?",
+    "answer": "A function that returns the first non-null value in a list. COALESCE(val1, val2, 'default').[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "48. What is NULLIF()?",
+    "answer": "Returns NULL if two expressions are equal; otherwise, it returns the first expression. Useful for preventing division by zero errors.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "49. What are Window Functions?",
+    "answer": "Functions that perform calculations across a set of table rows that are related to the current row (e.g., ROW_NUMBER, RANK, LEAD, LAG). Unlike aggregate functions, they do not collapse rows.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "50. Difference between RANK(), DENSE_RANK(), and ROW_NUMBER()?",
+    "answer": "• ROW_NUMBER(): Unique sequential number (1, 2, 3, 4).\n• RANK(): Skips numbers for ties (1, 2, 2, 4).\n• DENSE_RANK(): Does not skip numbers for ties (1, 2, 2, 3).[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "51. What are LEAD() and LAG() functions?",
+    "answer": "• LEAD(): Accesses data from the next row.\n• LAG(): Accesses data from the previous row.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "52. What is a Common Table Expression (CTE)?",
+    "answer": "A temporary result set defined with the WITH clause. It makes complex queries more readable and allows for recursion.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "53. What is a Recursive CTE?",
+    "answer": "A CTE that references itself. Useful for querying hierarchical data like organizational charts or family trees.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "54. What is a Stored Procedure?",
+    "answer": "A prepared SQL code that you can save, so the code can be reused over and over again. It can accept parameters.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "55. What is a Trigger?",
+    "answer": "A stored procedure that automatically runs (executes) when an event occurs in the database server (e.g., BEFORE INSERT, AFTER UPDATE).[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "56. What is a Cursor?",
+    "answer": "A database object used to retrieve, manipulate, and traverse through a result set row-by-row.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "57. What is an Index?",
+    "answer": "A data structure that improves the speed of data retrieval operations on a database table.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "58. What is the difference between a Clustered and Non-Clustered Index?",
+    "answer": "• Clustered: Physically sorts the data on the disk. Only one per table (usually the Primary Key).\n• Non-Clustered: Creates a separate structure that points to the data. A table can have multiple.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "59. What are the disadvantages of Indexes?",
+    "answer": "They slow down INSERT, UPDATE, and DELETE operations because the index must also be updated. They also consume disk space.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "60. What is ACID?",
+    "answer": "Properties that guarantee database transactions are processed reliably:\n• Atomicity: All or nothing.\n• Consistency: Valid state to valid state.\n• Isolation: Transactions do not interfere.\n• Durability: Data is saved permanently after commit.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "61. What is Database Locking?",
+    "answer": "A mechanism to prevent multiple users from updating the same data simultaneously, ensuring data integrity.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "62. What is a Deadlock?",
+    "answer": "A situation where two or more transactions are waiting for one another to give up locks, resulting in a standstill.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "63. What is Query Optimization?",
+    "answer": "The process of identifying the most efficient way to execute a SQL query (e.g., using indexes, avoiding full table scans).[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "64. What is the EXPLAIN command?",
+    "answer": "Used to obtain a query execution plan, showing how the database intends to execute a query (which indexes are used, join methods, etc.).[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "65. What is SQL Injection?",
+    "answer": "A security vulnerability where an attacker interferes with the queries an application makes to its database.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "66. How do you prevent SQL Injection?",
+    "answer": "Use Prepared Statements (Parameterized Queries) and Input Validation.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "67. What is a Temporary Table?",
+    "answer": "A table that exists temporarily on the database server. It is automatically deleted when the session ends.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "68. What is the difference between WHERE and ON clause in Joins?",
+    "answer": "ON defines the join condition (how tables link). WHERE filters the result after the join is potentially made. In Inner Joins, they perform similarly. In Outer Joins, filtering in ON preserves rows; filtering in WHERE removes them.[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "69. How do you clone a table (structure only)?",
+    "answer": "SELECT * INTO new_table FROM old_table WHERE 1=0; (SQL Server) or CREATE TABLE new_table LIKE old_table; (MySQL).[cite: 2]"
+  },
+  {
+    "category": "Advanced SQL & Functions",
+    "question": "70. How do you clone a table (structure and data)?",
+    "answer": "SELECT * INTO new_table FROM old_table;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "71. Write a query to find the second highest salary.",
+    "answer": "SELECT MAX(salary) FROM Employee WHERE salary < (SELECT MAX(salary) FROM Employee);[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "72. Write a query to find the Nth highest salary.",
+    "answer": "SELECT salary FROM Employee ORDER BY salary DESC LIMIT N-1, 1; (MySQL)[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "73. Write a query to find duplicate rows in a table.",
+    "answer": "SELECT column_name, COUNT(*) FROM table_name GROUP BY column_name HAVING COUNT(*) > 1;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "74. How to delete duplicate rows but keep one?",
+    "answer": "Using a CTE and ROW_NUMBER():\nWITH CTE AS (\nSELECT *, ROW_NUMBER() OVER(PARTITION BY id ORDER BY id) as rn\nFROM table_name\n)\nDELETE FROM CTE WHERE rn > 1;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "75. Write a query to get current date and time.",
+    "answer": "SELECT NOW(); (MySQL) or SELECT GETDATE(); (SQL Server).[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "76. Write a query to find employees whose name starts with 'A'.",
+    "answer": "SELECT * FROM Employee WHERE name LIKE 'A%';[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "77. How to fetch alternate records from a table?",
+    "answer": "• Even: SELECT * FROM table WHERE id % 2 = 0;\n• Odd: SELECT * FROM table WHERE id % 2 <> 0;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "78. Write a query to find the 3 highest earners in each department.",
+    "answer": "SELECT department, name, salary FROM (\nSELECT *, DENSE_RANK() OVER(PARTITION BY department ORDER BY salary DESC) as rank\nFROM employees\n) as t\nWHERE rank <= 3;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "79. Write a query to calculate the cumulative sum of salary.",
+    "answer": "SELECT id, salary, SUM(salary) OVER(ORDER BY id) as cumulative_sum FROM employees;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "80. How to select the first 5 records from a table?",
+    "answer": "• MySQL/PostgreSQL: SELECT * FROM table LIMIT 5;\n• SQL Server: SELECT TOP 5 * FROM table;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "81. Write a query to find employees hired in the last 30 days.",
+    "answer": "SELECT * FROM Employees WHERE hire_date >= DATE_SUB(CURDATE(), INTERVAL 30 DAY);[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "82. How do you change a column name in a table?",
+    "answer": "ALTER TABLE table_name RENAME COLUMN old_name TO new_name;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "83. How do you add a new column to a table?",
+    "answer": "ALTER TABLE table_name ADD column_name datatype;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "84. How do you drop a column from a table?",
+    "answer": "ALTER TABLE table_name DROP COLUMN column_name;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "85. Write a query to find common records between two tables.",
+    "answer": "SELECT * FROM TableA INTERSECT SELECT * FROM TableB;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "86. Write a query to calculate the age from a Date of Birth.",
+    "answer": "SELECT TIMESTAMPDIFF(YEAR, dob, CURDATE()) AS age FROM users;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "87. How to find rows that contain only numeric data in a VARCHAR column?",
+    "answer": "SELECT * FROM table WHERE column REGEXP '^[0-9]+$';[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "88. Write a query to combine First Name and Last Name.",
+    "answer": "SELECT CONCAT(First_Name, ' ', Last_Name) AS Full_Name FROM Employees;[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "89. What does the <> operator mean?",
+    "answer": "It means 'Not Equal To' (Same as !=).[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "90. What is the standard port for MySQL and PostgreSQL?",
+    "answer": "MySQL: 3306, PostgreSQL: 5432.[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "91. Can a Primary Key be based on multiple columns?",
+    "answer": "Yes, this is called a Composite Primary Key.[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "92. What is Data Integrity?",
+    "answer": "Ensuring the accuracy and consistency of data (Entity, Referential, Domain integrity).[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "93. What is a 'Safe Update'?",
+    "answer": "A mode in some databases (like MySQL) that prevents UPDATE or DELETE statements without a WHERE clause that uses a KEY.[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "94. What is a Bitmap Index?",
+    "answer": "A special index used for columns with low cardinality (few unique values like Gender: M/F). Common in Data Warehousing.[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "95. What is OLTP vs OLAP?",
+    "answer": "• OLTP (Online Transaction Processing): Fast, day-to-day operations (Bank ATM).\n• OLAP (Online Analytical Processing): Complex analysis, historical data (Business Intelligence).[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "96. What is a Pivot Table (in SQL context)?",
+    "answer": "A technique to rotate rows into columns (Transposing).[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "97. How to handle NULL values in calculations?",
+    "answer": "Use COALESCE(column, 0) or IFNULL(column, 0) to convert NULL to zero before calculating.[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "98. Write a query to update a salary by 10% for a specific department.",
+    "answer": "UPDATE Employees SET salary = salary * 1.10 WHERE department = 'IT';[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "99. How to find the number of days between two dates?",
+    "answer": "SELECT DATEDIFF(date1, date2);[cite: 2]"
+  },
+  {
+    "category": "Practical & Scenario-Based Queries",
+    "question": "100. Write a query to randomly select 1 row.",
+    "answer": "SELECT * FROM table ORDER BY RAND() LIMIT 1;[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "101. What is the output of an INNER JOIN if there are NULL values in the join column?",
+    "answer": "NULL values never match with anything (not even other NULLs). Rows with NULL in the joining column will be excluded from the result of an INNER JOIN.[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "102. If Table A has 5 rows (all 1s) and Table B has 3 rows (all 1s), how many rows will a CROSS JOIN return?",
+    "answer": "A Cross Join is a Cartesian product (5 x 3). It will return 15 rows.[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "103. Using the same tables (A=5 rows of 1s, B=3 rows of 1s), how many rows will an INNER JOIN return?",
+    "answer": "Since every row in A matches every row in B (1=1) it behaves exactly like a Cross Join. It will return 15 rows.[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "104. When would you use a FULL OUTER JOIN over a LEFT or RIGHT join?",
+    "answer": "Use a FULL OUTER JOIN when you want to see all data from both tables, regardless of whether there is a match. For example, to find 'Orphan' records in both tables simultaneously (e.g., Customers without Orders AND Orders without valid Customers).[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "105. Write a query to find all employees who do NOT have a manager.",
+    "answer": "This requires a Self Join or a simple WHERE clause if the manager_id is in the same table.\nSELECT name FROM Employees WHERE manager_id IS NULL;[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "106. Explain 'Semi Join' vs. 'Anti Join'.",
+    "answer": "• Semi Join: Returns rows from the first table where a match exists in the second table (often used with EXISTS). It doesn't duplicate rows from the first table like an Inner Join might.\n• Anti Join: Returns rows from the first table where NO match exists in the second table (often used with NOT EXISTS).[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "107. How can you simulate a FULL OUTER JOIN in MySQL (which doesn't support it directly)?",
+    "answer": "You must UNION a LEFT JOIN and a RIGHT JOIN.\nSELECT * FROM A LEFT JOIN B ON A.id=B.id\nUNION\nSELECT * FROM A RIGHT JOIN B ON A.id=B.id;[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "108. Scenario: You have a table Students and Courses. How do you find students who have NOT enrolled in any course?",
+    "answer": "Use a LEFT JOIN where the right side is NULL.\nSELECT s.name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id WHERE e.course_id IS NULL;[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "109. What is the performance difference between JOIN and WHERE clause for joining tables (Implicit Join)?",
+    "answer": "In modern SQL optimizers, there is usually no performance difference between explicit (INNER JOIN) and implicit (WHERE table1.id = table2.id) joins. However, explicit JOIN syntax is preferred for readability and is required for Outer Joins.[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "110. Can you join a table on a specific condition other than equality (Non-Equi Join)? Give an example.",
+    "answer": "Yes.\nSELECT e.name, s.grade FROM Employees e JOIN SalaryGrades s ON e.salary BETWEEN s.min_salary AND s.max_salary;[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "111. What happens to the result set if you use LEFT JOIN and filter by a column in the right table in the WHERE clause?",
+    "answer": "It effectively turns the LEFT JOIN into an INNER JOIN. The WHERE clause filters out the NULLs generated by the Left Join. (To preserve the Left Join behavior, put that condition in the ON clause).[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "112. How does a CROSS JOIN differ from an INNER JOIN with a condition ON 1=1?",
+    "answer": "Functionally, they are identical; both produce a Cartesian product. However, CROSS JOIN syntax explicitly states the intent to produce a product, whereas INNER JOIN ON 1=1 looks like a hack.[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "113. If Table A has 10 rows and Table B has 0 rows, how many rows will SELECT * FROM A LEFT JOIN B ON A.id=B.id return?",
+    "answer": "10 rows. A Left Join always returns all rows from the left table. The columns from Table B will simply be NULL.[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "114. If Table A has 10 rows and Table B has 0 rows, how many rows will SELECT * FROM A INNER JOIN B ON A.id = B.id return?",
+    "answer": "0 rows. An Inner Join requires a match in both tables.[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "115. Write a query to find pairs of cities that have the same name but are in different countries.",
+    "answer": "Self Join.\nSELECT A.city, A.country, B.country FROM Cities A JOIN Cities B ON A.city = B.city AND A.country <> B.country;[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "116. What is a 'Rolling Join' (or ASOF Join)?",
+    "answer": "Commonly used in time-series data (like finance). It joins a row to the closest matching timestamp in another table without requiring an exact match. (Supported natively in Snowflake/Pandas, requires complex logic in standard SQL).[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "117. What is a 'Lateral Join' (or CROSS APPLY)?",
+    "answer": "It allows a subquery in the JOIN clause to reference columns from the preceding tables in the FROM clause. Useful for applying a function to every row of a table (e.g., getting the 'Top 3 orders' for each customer).[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "118. How do you find records where the join key is NULL in both tables?",
+    "answer": "Join keys that are NULL will never match. You would have to select them separately using WHERE key IS NULL from both tables and UNION them, as standard joins drop NULL keys.[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "119. Scenario: You want to update Table A with values from Table B based on a matching ID. How do you write this?",
+    "answer": "UPDATE TableA\nSET TableA.value = TableB.value\nFROM TableA\nJOIN TableB ON TableA.id = TableB.id;[cite: 2]"
+  },
+  {
+    "category": "Deep Dive into JOINS",
+    "question": "120. Explain the order of execution for a query with Joins, Where, and Group By.",
+    "answer": "1. FROM / JOIN: Tables are combined first.\n2. WHERE: Rows are filtered.\n3. GROUP BY: Rows are grouped.\n4. HAVING: Groups are filtered.\n5. SELECT: Columns are selected.\n6. ORDER BY: Final sorting.[cite: 2]"
+  }
+]
